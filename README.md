@@ -1,2 +1,2 @@
 # Patikastore
-Store UI with FlatList
+Store application with FlatList using local json data.
