@@ -1,20 +1,13 @@
 import React from 'react';
 import { SafeAreaView, Text, View, StyleSheet, Dimensions, TextInput, FlatList, Image } from 'react-native';
+import ProductCard from './components/product_card/product_card';
 import product_data from './data/product_data.json';
 
 const App = () => {
 
   const [text, onChangeText] = React.useState("");
-  const renderItem = ({ item }) => {
-    return (
-      <View style={styles.product_container}>
-        <Image style={styles.product_image} source={{ uri: item.imageURL }}></Image>
-        <Text style={styles.product_title}>{item.title}</Text>
-        <Text style={styles.product_price}>{item.price}</Text>
-        <Text style={styles.product_stock}>{(item.inStock) ? "" : "STOKTA YOK"}</Text>
-      </View>
-    );
-  }
+  const renderItem = ({ item }) => <ProductCard product={item} />
+
   return (
     <SafeAreaView>
       <Text style={styles.header_text}>PATIKASTORE</Text>
@@ -52,30 +45,5 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     borderRadius: 8,
   },
-  product_container: {
-    width: '50%',
-    borderWidth: 1,
-    padding: 15,
-    backgroundColor: '#E9E9E9',
-    borderColor: 'blue',
-  },
-  product_image: {
-    width: 100,
-    height: 100,
-    borderWidth: 1,
-    borderColor: 'red',
-  },
-
-  product_title: {
-    fontWeight: 'bold',
-    color: 'black',
-  },
-
-  product_price: {},
-  product_stock: {
-    color:'red',
-    fontWeight:'700',
-  },
-
 
 });
