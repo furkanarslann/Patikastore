@@ -1,27 +1,26 @@
 import React from "react";
-import { StyleSheet } from "react-native";
+import { Dimensions, StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
     container: {
-        width: '50%',
-        borderWidth: 1,
+        flex: 1,
+        backgroundColor: "#EEEFF0",
         padding: 15,
-        backgroundColor: '#E9E9E9',
-        borderColor: 'blue',
+        margin: 10,
+        borderRadius: 10,
+        justifyContent:'space-between',
     },
     image: {
-        width: 100,
-        height: 100,
-        borderWidth: 1,
-        borderColor: 'red',
+        height:Dimensions.get('window').height / 4.3,
+        width: '100%'
     },
-
     title: {
         fontWeight: 'bold',
         color: 'black',
     },
-
-    price: {},
+    price: {
+        fontWeight: '700'
+    },
     stock: {
         color: 'red',
         fontWeight: '700',
