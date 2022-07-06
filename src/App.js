@@ -3,6 +3,7 @@ import { SafeAreaView, Text, View, StyleSheet, Dimensions, TextInput, FlatList, 
 import ProductCard from './components/product_card/product_card';
 import SearchBar from './components/search_bar/search_bar';
 import product_data from './data/product_data.json';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 const App = () => {
 
@@ -10,7 +11,8 @@ const App = () => {
 
   return (
     <SafeAreaView>
-      <Text style={styles.header_text}>PATIKA STORE</Text>
+      
+      <Text style={styles.header_text}><Icon name='shopping-basket' size={23} color='purple' style={styles.icon}  /> PATIKA STORE</Text>
 
       <SearchBar placeholder={'Search...'} />
       <View style={styles.body}>
@@ -44,6 +46,7 @@ const styles = StyleSheet.create({
   body: {
     marginHorizontal: 5,
     marginBottom: 220,
-  }
+  },
+ 
 
 });
