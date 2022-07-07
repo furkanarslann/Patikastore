@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { SafeAreaView, Text, View, StyleSheet, Dimensions, TextInput, FlatList, Image } from 'react-native';
 import ProductCard from './components/product_card/product_card';
 import SearchBar from './components/search_bar/search_bar';
@@ -8,17 +8,18 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 const App = () => {
 
   const renderItem = ({ item }) => <ProductCard product={item} />
-
+  const [filteredData, setFilteredData] = useState(product_data);
+  // console.log(filteredData);
   return (
     <SafeAreaView>
-      
-      <Text style={styles.header_text}><Icon name='shopping-basket' size={23} color='purple' style={styles.icon}  /> PATIKA STORE</Text>
 
-      <SearchBar placeholder={'Search...'} />
+      <Text style={styles.header_text}><Icon name='shopping-basket' size={23} color='purple' style={styles.icon} /> PATIKA STORE</Text>
+
+      <SearchBar placeholder={'Search...'} setFilteredData={setFilteredData} />
       <View style={styles.body}>
         <FlatList
           horizontal={false}
-          data={product_data}
+          data={filteredData}
           renderItem={renderItem}
           keyExtractor={(item) => item.id.toString()}
           numColumns={2}
@@ -47,6 +48,6 @@ const styles = StyleSheet.create({
     marginHorizontal: 5,
     marginBottom: 220,
   },
- 
+
 
 });
